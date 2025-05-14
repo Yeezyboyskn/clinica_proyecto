@@ -1,17 +1,15 @@
-<!-- frontend/index.html -->
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Frontend Clínica</title>
+    <title>Hola desde la Clínica</title>
 </head>
 <body>
-    <h1>Bienvenido al sistema de Clínica</h1>
+    <h1>Bienvenido</h1>
     <button onclick="saludar()">Saludar</button>
 
     <script>
         async function saludar() {
-            const res = await fetch("http://127.0.0.1:8000/hola");
+            const res = await fetch("http://localhost:8000/hola");
             const data = await res.json();
             alert(data.mensaje);
         }

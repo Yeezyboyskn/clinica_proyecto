@@ -2,6 +2,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pymongo import MongoClient
+from fastapi import FastAPI
+from backend.database import coleccion
 
 app = FastAPI()
 
@@ -15,6 +17,11 @@ app.add_middleware(
 
 client = MongoClient("mongodb://localhost:27017/")
 db = client["clinica_db"]
+
+@app.get("/hola")
+def hola():
+    coleccion.insert_one({"mensaje": "Hola desde la base de datos!"})
+    return {"mensaje": "Hola mundo en 3 capas"}
 
 @app.get("/hola")
 def hola_mundo():
